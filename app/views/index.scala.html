@@ -1,7 +1,17 @@
-@(message: String)
+@(allPeople:Seq[model.Person])
 
-@main("Welcome to Play 2.1") {
-    
-    @play20.welcome(message)
-    
+@main("All People") {
+	<h2>All People (@allPeople.size)</h2>
+	<table>
+		<tr>
+			<td>First Name</td>
+			<td>Last Name</td>
+		</tr>
+		@allPeople.map{p =>
+			<tr>
+				<td>@p.firstName</td>
+				<td>@p.lastName</td>
+			</tr>
+		}
+	</table>
 }
