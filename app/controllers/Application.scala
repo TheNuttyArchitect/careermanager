@@ -3,13 +3,12 @@ package controllers
 import play.api._
 import play.api.mvc._
 import model.People
+import model.Employees
 
 object Application extends Controller {
   
-  def index = Action {
-    //Ok(views.html.index("Your new application is ready."))
-    val people = People.findAllPeople().toSeq
-    Ok(views.html.index(people))
+  def index = {
+    getEmployeeSummary(1)
   }
   
   def allPeople = Action {
@@ -22,6 +21,11 @@ object Application extends Controller {
     //Ok(views.html.)
     //views.html.
     Ok(views.html.allPeople(people))
+  }
+  
+  def getEmployeeSummary(employeeId:Int) = Action { 
+    val employee:model.Employee = Employees.getSummary(employeeId)
+    Ok(views.html.index(employee))
   }
   
 }

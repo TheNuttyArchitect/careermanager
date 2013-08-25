@@ -1,16 +1,29 @@
-@(allPeople:Seq[model.Person])
+@(emp:model.Employee)
 
-@main("All People") {
-	<h2>All People (@allPeople.size)</h2>
+@main("Employee") {
+	<h2>@emp.firstName @emp.lastName</h2>
 	<table>
 		<tr>
-			<td>First Name</td>
-			<td>Last Name</td>
+			<td>Title:</td>
+			<td>@emp.title</td>
 		</tr>
-		@allPeople.map{p =>
+		<tr>
+			<td>Hire Date:</td>
+			<td>@emp.hireDate</td>
+		</tr>
+		@if(emp.isActive){
 			<tr>
-				<td>@p.firstName</td>
-				<td>@p.lastName</td>
+				<td>Active:</td>
+				<td>Yes</td>
+			</tr>
+		}else{
+			<tr>
+				<td>Active:</td>
+				<td>No</td>
+			</tr>
+			<tr>
+				<td>Termination Date:</td>
+				<td>emp.terminationDate</td>
 			</tr>
 		}
 	</table>

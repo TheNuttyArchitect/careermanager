@@ -4,8 +4,8 @@
 
 # Home page
 GET     /                           controllers.Application.index
-
-GET		/getAllPeogple				controllers.Application.allPeople
+GET		/getAllPeople				controllers.Application.allPeople
+GET		/getEmployeeSummary			controllers.Application.getEmployeeSummary(employeeId: Int)
 
 
 # Map static resources from the /public folder to the /assets URL path
